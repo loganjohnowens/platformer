@@ -21,8 +21,6 @@ def movemnt():
         pos[0] += 1
     if keys[pygame.K_a]:
         pos[0] -= 1
-    if keys[pygame.K_s]:
-        crouch = True
     if keys[pygame.K_w] and on_ground is True:
         jump = True
     image = 0
@@ -67,6 +65,7 @@ def ground(ground_pos, size):
 def level():
     global level_number
     if level_number == 1:
+        backround(10)
         ground([-1, 200,], [300, 10])
 
 
@@ -83,6 +82,22 @@ def jumping():
             jump_time = 0
 
 
+def backround(number):
+    screen.blit(images[number], (0, 0))
+
+
+def make_exit_butten_work():
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            pygame.quit()
+            sys.exit()
+
+
+def update_and_time():
+    pygame.display.flip()
+    time.sleep(.001)
+
+
 level_number = 1
 image = 0
 pos = [0, 0]
@@ -94,14 +109,9 @@ pygame.init()
 make_screen()
 images = import_sprites()
 while True:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            pygame.quit()
-            sys.exit()
-    screen.fill((0, 0, 0))
+    make_exit_butten_work()
     level()
     movemnt()
     jumping()
     gravity()
-    pygame.display.flip()
-    time.sleep(.001)
+    update_and_time()

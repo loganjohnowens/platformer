@@ -65,7 +65,8 @@ def ground(ground_pos, size):
 def level():
     global level_number
     if level_number == 1:
-        backround(10)
+        backround(9)
+        screen.blit(images[10], (310, 150))
         ground([-1, 200,], [300, 10])
 
 

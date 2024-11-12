@@ -24,6 +24,6 @@ def import_sprites():
     image[8] = pygame.transform.scale(image[8], (200, 200))
     image.append(pygame.image.load(os.path.join("images", "backround.png")).convert_alpha())
     image[9] = pygame.transform.scale(image[9], (800, 600))
-    image.append(pygame.image.load(os.path.join("images", "backround_with_window.png")).convert_alpha())
+    image.append(pygame.image.load(os.path.join("images", "window.png")).convert_alpha())
     image[10] = pygame.transform.scale(image[10], (800, 600))
     return image
